@@ -23,7 +23,7 @@ UART数据线在没有信号传输时保持高电平状态，传输数据有一�
 
 一个典型的UART数据结构如下（传输的数据为0x55)
 
-![](file://D:/temp/markdown/signal.png)
+![UART信号](https://github.com/renesas/diary/raw/master/train_doc/uart_train/signal.png)
 
 **注意UART传输数据是地位在前(LSB),这点与I2C等不同**
 
@@ -41,13 +41,13 @@ UART数据线在没有信号传输时保持高电平状态，传输数据有一�
 ###接口的电气特性###
 在RS-232-C中任何一条信号线的电压均为负逻辑关系。即：逻 辑“1”，-5— -15V；逻辑“0” +5— +15V 。噪声容限为2V。即 要求接收器能识别低至+3V的信号作为逻辑“0”，高到-3V的信号 作为逻辑“1” 
 
-![](file://D:/temp/markdown/table.png)
+![](https://github.com/renesas/diary/raw/master/train_doc/uart_train/table.png)
 
 ###接口的物理结构###
 RS-232-C接口连接器一般使用型号为DB-25的25芯插头座,通常插头在DCE端,插座在DTE端. 一些设备与PC机连接的RS-232-C接口,因为不使用对方的传送控制信号,只需三条接口线,即“发送数据”、“接收数据”和“信号地”。所以采用DB-9的9芯插头座，传输线采用屏蔽双绞线。
 DCE与DTE的连接线是直通线，一端为针一端为孔。但是我们在调试中经常用到的传输线是用于两个计算机设备间的数据传输的，两头都是孔，线序是交叉线。
 
-![](file://D:/temp/markdown/rtl.png)
+![](https://github.com/renesas/diary/raw/master/train_doc/uart_train/rtl.png)
 
 ###串口的应用###
 串口一般用于两个系统间的通信，比如很多芯片的开发板就是通过串口与PC连接的。 串口也用于系统内部设备间的通信，最常见使用UART通信的设备是GPS和蓝牙模块。 另外比较老的Modem （GPRS或者Edge）也使用串口与CPU通信。
@@ -116,13 +116,13 @@ tty命令可以用于查看当前进程连接的终端名称
 
 任何写入到伪终端主设备的输入，都会作为伪终端从设备的输入，反之亦然。类似于管道，如下图：
 
-![](file://D:/temp/markdown/flow.png)
+![](https://github.com/renesas/diary/raw/master/train_doc/uart_train/flow.png)
 
 这张图的关键在于：如果把伪终端从设备想像为传统的终端设备，把主设备看成进程读写数据的一个“接口”，那么它的工作原理，就跟传统终端一样了。
 
 上述只是一个本地进程，把网络引入进来，对应到telnetd上面来，应该是下面这个样子：
 
-![](file://D:/temp/markdown/telnet.png)
+![](https://github.com/renesas/diary/raw/master/train_doc/uart_train/telnet.png)
 
 
 同样的登录方式，就变成了这样：
